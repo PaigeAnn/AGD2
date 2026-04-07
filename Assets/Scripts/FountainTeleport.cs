@@ -4,14 +4,17 @@ using System.Collections;
 public class FountainTeleport : MonoBehaviour
 {
     public Transform destination; // Assign in Inspector
-    public float cooldown = 0.5f;
+    public float cooldown = 1f;
 
     private bool canTeleport = true;
+
+    public Collider2D teleportCollider; // Assign in Inspector
 
     // Start is called before the first frame update
     void Start()
     {
         // You usually don't need anything here for teleporting
+
     }
 
     // Update is called once per frame
@@ -32,10 +35,12 @@ public class FountainTeleport : MonoBehaviour
     {
         canTeleport = false;
 
+        teleportCollider.enabled = false; // Disable collider to prevent immediate re-teleportation
         // Move player to destination
         player.position = destination.position;
 
         yield return new WaitForSeconds(cooldown);
+        teleportCollider.enabled = true; // Re-enable collider after cooldown
 
         canTeleport = true;
     }
