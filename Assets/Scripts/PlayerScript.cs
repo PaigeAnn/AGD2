@@ -6,15 +6,17 @@ using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     float moveInputX;
     float moveInputY;
     public Vector3 spawnPoint;
 
-   // public TMP_Text scoreText;
+  //  public TMP_Text scoreText;
     public int score = 0;
+
+    public GameObject deathPanel;
 
 
 
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         spawnPoint = transform.position;
         rb2d = GetComponent<Rigidbody2D>();
+        deathPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,17 +51,20 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("GoodFlower"))
         {
             other.gameObject.SetActive(false);
-            score=score+10;
+            score = score + 10;
+          //  scoreText.text = "Score: " + score.ToString();
         }
         if (other.gameObject.CompareTag("GoodFlower2"))
         {
             other.gameObject.SetActive(false);
             score = score + 15;
+           // scoreText.text = "Score: " + score.ToString();
         }
         else if (other.gameObject.CompareTag("BadFlower"))
         {
             //die
             Debug.Log("You lose!");
+            deathPanel.SetActive(true);
         }
     }
 }
