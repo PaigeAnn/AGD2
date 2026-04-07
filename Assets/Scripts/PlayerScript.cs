@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
-
+    
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     float moveInputX;
