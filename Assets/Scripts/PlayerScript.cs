@@ -52,13 +52,13 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score = score + 10;
-            scoreText.text = "Score: " + score.ToString();
+            scoreText.text = "Money: $" + score.ToString();
         }
         if (other.gameObject.CompareTag("GoodFlower2"))
         {
             other.gameObject.SetActive(false);
             score = score + 15;
-            scoreText.text = "Score: " + score.ToString();
+            scoreText.text = "Money: $" + score.ToString();
         }
         else if (other.gameObject.CompareTag("BadFlower"))
         {
