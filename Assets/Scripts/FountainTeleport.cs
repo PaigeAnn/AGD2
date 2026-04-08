@@ -13,14 +13,14 @@ public class FountainTeleport : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // You usually don't need anything here for teleporting
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Not needed for this script, but included for structure
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,7 +35,7 @@ public class FountainTeleport : MonoBehaviour
     {
         canTeleport = false;
 
-        teleportCollider.enabled = false; // Disable collider to prevent immediate re-teleportation
+        teleportCollider.enabled = false; 
         // Move player to destination
         player.position = destination.position;
 
